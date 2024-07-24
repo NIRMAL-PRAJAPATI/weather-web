@@ -4,7 +4,17 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body {
+#errmsg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(218, 218, 218);
+    color: red;
+    visibility: hidden;
+}
+
+#maindiv {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,7 +40,7 @@ body {
     width: 85%;
     font-size: 18px;
     border: none;
-    padding-left: 10px;
+    padding-left: 20px;
     border-radius: 30px;
 }
 
@@ -45,7 +55,7 @@ body {
 
 #degree, #c {
     color: white;
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 60px;
 }
 
@@ -60,7 +70,7 @@ body {
     color: white;
     display: flex;
     justify-content: space-between;
-    margin: 50px 15px 25px 15px;
+    margin: 50px 15px 10px 15px;
 }
 
 #wind {
