@@ -7,19 +7,31 @@ let cityname = document.querySelector('#city');
 let temp = document.querySelector('#degree');
 let humidity = document.querySelector('#humidity');
 let windspeed = document.querySelector('#speed');
+let errormassage = document.querySelector('#errmsg');
 
 let func = async(city) => {
-    const response = await fetch(url + city + `&appid=${key}`);
+    const response = await fetch(url + city.trim() + `&appid=${key}`);
     const data = await response.json();
 
         cityname.innerHTML = data.name;
+
+        setTimeout(() => {
+        if(cityname.innerHTML == "undefined") {
+
+            temp.innerHTML = "00°C";
+            humidity.innerHTML = "00 %";
+            windspeed.innerHTML = "00 km/h";
+
+            errormassage.style.visibility = "visible";
+            setTimeout(() => {
+                errormassage.style.visibility = "hidden";
+            }, 5000)
+        }
+}, 100);
+
         temp.innerHTML = Math.floor(data.main.temp) + "°C";
         humidity.innerHTML = data.main.humidity + " %";
         windspeed.innerHTML = Math.floor(data.wind.speed) + " km/h";
-
-        if(cityname.innerHTML == "undefined") {
-            console.log("dfeedededede")
-        }
 }
 
 btn.addEventListener("click", () => {
